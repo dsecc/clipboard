@@ -1,0 +1,12 @@
+[Unit]
+Description=Clipboard server (chat efímero entre mis equipos)
+
+[Service]
+ExecStart=/opt/clipboard/bin/clipd --listen 127.0.0.1:8787 --data /opt/clipboard/data
+Restart=always
+RestartSec=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=default.target

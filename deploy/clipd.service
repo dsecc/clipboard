@@ -1,0 +1,18 @@
+[Unit]
+Description=Clipboard server (chat efímero entre mis equipos)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/clipd --listen 127.0.0.1:8787 --data /var/lib/clipd
+Restart=always
+RestartSec=2
+DynamicUser=yes
+StateDirectory=clipd
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

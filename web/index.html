@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f1e1d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Clipboard">
+<title>Clipboard</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>Clipboard</h1>
+    <span id="status" class="status" aria-live="polite"><i></i><span>conectando…</span></span>
+  </header>
+  <main id="list" aria-live="polite"></main>
+  <div id="empty" class="empty">Nada por acá todavía.<br>Pegá algo abajo y aparece en todos tus equipos.</div>
+  <div id="error" class="error" role="alert" hidden></div>
+  <form id="composer">
+    <label class="attach" title="Adjuntar foto" aria-label="Adjuntar foto">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.7"/><path d="M21 16l-5-5-8 8"/></svg>
+      <input id="file" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+    </label>
+    <textarea id="input" rows="1" enterkeyhint="send" placeholder="Pegá o escribí acá…" autocomplete="off" autocapitalize="sentences"></textarea>
+  </form>
+</div>
+<div id="nameDialog" class="overlay" hidden>
+  <form id="nameForm">
+    <h2>¿Cómo se llama este equipo?</h2>
+    <p>Se muestra en cada mensaje que mandes desde acá.</p>
+    <input id="nameInput" maxlength="40" placeholder="iPhone" autocomplete="off">
+    <button type="submit">Listo</button>
+  </form>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
